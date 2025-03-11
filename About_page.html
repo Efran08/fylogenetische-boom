@@ -17,6 +17,23 @@
         </h1>
         <p>
             <span class = "alinea-title">About the tools</span>
+            Fasttree is een softwareprogramma die wij gebruiken voor de snelheid en efficiëntie voor het genereren van onze fylogenetische boom. Het krijgt als input een gealigneerd nucleotide- of eiwitsequenties. Wij willen als uitkomst hebben dat er uit de input (FASTA- of PHYLIP-formaat) een mooi newick-format ontstaat, waaruit we daarmee een visualisatie kunnen maken. Fasttree maakt gebruik van een benadering van maximum likehood. Dat betekent dat het ervoor zorgt dat fylogenetische bomen geconstrueerd wordt. Dit zorgt ervoor dat er een balans is tussen nauwkeurigheid en rekenefficiëntie.
+            Het instaleren van de tool doe je als volgt:
+            Ga naar een terminal op je computer en vul het volgende stapgewijs in.
+            <break>
+            · wget http://www.microbesonline.org/fasttree/FastTree -O ~/FastTree
+            · chmod +x ~/FastTree
+            · echo 'export PATH=$HOME:$PATH' >> ~/.bashrc
+            · source ~/.bashrc https://morgannprice.github.io/fasttree/
+
+            Informatie ETE toolkit:
+            De ETE (Environment for Tree Exploration) toolkit kan gebruikt worden voor het maken van fylogenetische bomen. De tool assisteert in het analyseren en het visualiseren van bomen. Wij gebruiken de ETE toolkit omdat het extra functionaliteiten heeft met fylogenetische bomen. Deze tool gaat dus voor ons ervoor zorgen dat er vanuit een newick-format een fylogentische boom gaat ontstaan.
+            Het instaleren van de tool doe je als volgt:
+            Ga naar een terminal op je computer en vul het volgende stapgewijs in.
+            · python3 -m venv ete_env
+            · source ete_env/bin/activate
+            · pip install ete3
+            Dit zorgt ervoor dat we ETE toolkit kunnen installeren zonder admin privileges https://etetoolkit.org/
         </p>
 
     </body>

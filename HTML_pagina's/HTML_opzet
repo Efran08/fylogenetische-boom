@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+     </head>
+     <body>
+         <h1>Dit is de titel van de pagina</h1>
+         <p>
+            Hier kan ik mijn inhoud van deze alinea plaatsen
+         </p>
+
+         <a href="https://www.google.nl">dit is een link naar Google</a>
+         <a href="tweede.html">Link naar mijn tweede pagina</a>
+
+      </body>
+</html>
+
+#ctrl+shift i voor box model
+
+
+# UTF-8 is backwards compatible with ASCII and the preferred encoding for e-mail and web pages
+
+
+CSS
+
+<div>: Wordt niet specifiek gebruikt voor formulieren, maar kan wel worden gebruikt om formulierelementen te groeperen.
+ Bijvoorbeeld, je zou een <div> kunnen gebruiken om een sectie van je formulier visueel te groeperen of te stylen.
+
+ Ja, achter class kun je inderdaad de naam van een klasse zetten, zoals bijvoorbeeld label.
+ Dit betekent dat het HTML-element dat de class="label" heeft, de stijlen of gedragingen die aan de .label-klasse in je CSS zijn gekoppeld, zal overnemen.

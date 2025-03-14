@@ -11,10 +11,10 @@
     </head>
     <body>
         <ul class="menubar">
-            <li><a href="{{ url_for('home') }}">Home</a></li>
-            <li><a href="{{ url_for('tutorial') }}">Tutorial</a></li>
-            <li><a href="{{ url_for('about') }}">About</a></li>
-            <li><a href="{{ url_for('contact') }}">Contact</a></li>
+            <li><a href="{{ url_for('home_pagina') }}">Home</a></li>
+            <li><a href="{{ url_for('tutorial_pagina') }}">Tutorial</a></li>
+            <li><a href="{{ url_for('dynamische_about_pagina') }}">About</a></li>
+            <li><a href="{{ url_for('contact_pagina') }}">Contact</a></li>
         </ul>
         <div class="content">
             {% block content %}

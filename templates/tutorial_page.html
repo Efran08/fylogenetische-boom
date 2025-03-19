@@ -1,19 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Home - Treevolution🌲</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='tutorial_page.css') }}">
-    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='treevolution_logo.png') }}">
-</head>
-<body>
-    <ul class="menubar">
-        <li><a href="{{url_for("home_pagina")}}">Home</a></li>
-        <li><a href="{{url_for("tutorial_pagina")}}">Tutorial</a></li>
-        <li><a href="{{url_for("dynamische_about_pagina")}}">About</a></li>
-        <li><a href="{{url_for("contact_pagina")}}">Contact</a></li>
-    </ul>
+{% extends "base.html" %}
 
+{% block title %}
+    Tutorial - Treevolution🌲
+{% endblock %}
+
+{% block content %}
     <h1>Treevolution — Easily create phylogenetic trees right from your browser!</h1>
 
     <h2>Example of command-line arguments</h2>
@@ -42,5 +33,4 @@
     <pre>ete3 view -t output.tree -o tree.pdf --format pdf</pre>
 
     <p>By following these steps, you can easily generate and visualize a phylogenetic tree!</p>
-</body>
-</html>
+{% endblock %}

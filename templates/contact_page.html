@@ -1,29 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" type="text/css" href="contactpage_toolbox.css">
-        <link rel="stylesheet" href="home_page.css">
-         <link rel="icon" type="image/x-icon" href="treevolution_logo.png">
-        <title>Contact Form - Treevolution🌲</title>
-    </head>
-     <body>
-        <ul class="menubar">
-            <li><a href="home_page.html">Home</a></li>
-            <li><a href="tutorial.page.html">Tutorial</a></li>
-            <li><a href="About_page.html">About</a><li>
-            <li><a href="contact_page.html">Contact</a></li>
+{% extends "base.html" %}
 
-        </ul>
+    {% block title %}
+        <title>{{Contact Form}}</title>
+    {% endblock %}
+
+    {% block content %}
 
         <h1>Contact Us</h1>
+
         <p>
             Any questions or comments? Please let us know! Fill out the form below.
         </p>
+    {% endblock %}
 
 
+    {% block content %}
+ <form class="contact_form" action="" method="post">
 
-           <form class="contact_form">
              <label class="large-label" for="name">Name:</label><br>
              <input type="text" id="name" name="name">
                <br>
@@ -33,7 +26,6 @@
              <textarea id="message" name="message"></textarea>
                <button name="button" id="button">Submit</button>
            </form>
+    {% endblock %}
      </body>
-
-
 

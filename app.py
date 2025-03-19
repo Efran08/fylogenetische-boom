@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home_pagina():
-    return render_template('base.html')
+    return render_template('home_page.html')
 
 @app.route('/about')
 def dynamische_about_pagina():
@@ -30,7 +30,3 @@ def contact_pagina():
 
 if __name__ == '__main__':
     app.run()
-
-
-if __name__ == '__main__':
-    app.run(debug=True)

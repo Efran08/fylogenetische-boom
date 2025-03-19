@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
@@ -17,7 +17,20 @@ def tutorial_pagina():
 
 @app.route('/contact')
 def contact_pagina():
-    return render_template('contact_page.html')
+    if request.method == 'GET':
+        return render_template('contact_page.html')
+
+    elif request.method == 'POST':
+      kwargs = {
+          'name' : request.form['name'],
+          'email' : request.form['email'],
+          'message' : request.form['message']
+      }
+    return render_template('contact_page.html', **kwargs)
+
+if __name__ == '__main__':
+    app.run()
+
 
 if __name__ == '__main__':
     app.run(debug=True)

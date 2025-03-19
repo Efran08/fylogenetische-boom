@@ -1,22 +1,13 @@
-<!DOCTYPE html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}About{% endblock %} - Treevolution🌲</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='home_page.css') }}">
-        <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename="treevolution_logo.png") }}">
-    </head>
-    <body>
-        <ul class="menubar">
-            <li><a href="{{url_for("home_pagina")}}">Home</a></li>
-            <li><a href="{{url_for("tutorial_pagina")}}">Tutorial</a></li>
-            <li><a href="{{url_for("dynamische_about_pagina")}}">About</a></li>
-            <li><a href="{{url_for("contact_pagina")}}">Contact</a></li>
-        </ul>
-        <h1>
-            Everything about Treevolution
-        </h1>
-        <p>
-            <span class = "alinea-title"></span>
+{% extends "base.html" %}
+{% block title %}
+    About
+{% endblock %}
+{% block content %}
+    <h1>
+    Everything about Treevolution
+    </h1>
+    <p>
+        <span class = "alinea-title"></span>
             {% block content %}
                 <b>Information Fasttree:</b><br><br>
 
@@ -29,8 +20,7 @@
             The ETE (Eniviroment for Tree Exploration) toolkit can be used for making phylogenetic tree. The tool assist in analyzing and visualizing of making phylogenetic trees. With this tool you can make small and big trees and it will visualize in professional way.<br><br>
             The ETE-toolkit is python-based what is a common program-language for many programmers. We are using the ETE toolkit because it has extra functionalities with phylogenetic trees. Example from a functionalitie: With the ETE toolkit you can compare two different phylogenetic trees and you can see what the relatives are between the two trees who are compared.<br><br>
             https://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-11-24,<br> https://doi.org/10.1093/molbev/msp077
-            {% endblock %}
+
 
         </p>
-
-    </body>
+{% endblock %}

@@ -15,7 +15,7 @@ def dynamische_about_pagina():
 def tutorial_pagina():
     return render_template('tutorial_page.html')
 
-@app.route('/contact')
+@app.route('/contact', methods=['GET', 'POST'])
 def contact_pagina():
     if request.method == 'GET':
         return render_template('contact_page.html')

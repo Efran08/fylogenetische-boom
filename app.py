@@ -36,6 +36,14 @@ def tutorial_pagina():
     """
     return render_template('tutorial_page.html')
 
+@app.route('/tool')
+def tool_gebruiken():
+    """
+    Hier vul je een Fasta of PHILYP bestand in.
+    :return: een fylogenetische-boom
+    """
+    return render_template('tool_gebruiken_page.html')
+
 @app.route('/contact', methods=['GET', 'POST'])
 def contact_pagina():
     """
@@ -54,13 +62,5 @@ def contact_pagina():
       }
     return render_template('contact_us_output.html', **kwargs)
 
-@app.route('/tool')
-def tool_page():
-    """
-    Deze functie roept de tool pagina op onder de html /tool
-    :return:
-    """
-    return render_template('tool_gebruiken_page.html')
-
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)

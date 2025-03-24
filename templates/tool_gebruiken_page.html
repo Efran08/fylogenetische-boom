@@ -1,8 +1,18 @@
 {% extends "base.html" %}
-{% block title %}
-    Tool
+{% block title%}
+    Invoer Fasta of PHLIYP bestand
 {% endblock %}
-
 {% block content %}
+    <h1>
+        Invoer voor fylogenetische boom:
+    </h1>
+    <p>
+    Vul hier je Fasta of PHILYP sequenties in, voor een mooi fylogenetische boom
+    </p>
 
+    <form class="tool_gebruiken" action="" method="post">
+             <label class="large-label" for="sequenties">Sequenties:</label><br>
+             <textarea id="sequenties" name="sequenties"></textarea>
+               <button name="button" id="button">Submit</button>
+           </form>
 {% endblock %}

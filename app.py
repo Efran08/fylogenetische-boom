@@ -54,5 +54,13 @@ def contact_pagina():
       }
     return render_template('contact_us_output.html', **kwargs)
 
+@app.route('/tool')
+def tool_page():
+    """
+    Deze functie roept de tool pagina op onder de html /tool
+    :return:
+    """
+    return render_template('tool_gebruiken_page.html')
+
 if __name__ == '__main__':
     app.run()

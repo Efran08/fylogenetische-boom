@@ -1,3 +1,12 @@
+"""
+In deze python script zorgen wij ervoor dat we via een app.route naar onze website worden gestuurd.
+met verschillende argumenten die we geven in de app.route zorgen wij ervoor dat er een
+overzichtelijke route is voor de website.
+Efran Huliseln, Herke Wilts, Alana Hummel, Gea Bakker en Wytze Meijer.
+versie 1.3
+21-03-25
+"""
+
 from flask import Flask, render_template, request
 
 app = Flask(__name__)
@@ -5,28 +14,45 @@ app = Flask(__name__)
 
 @app.route('/')
 def home_pagina():
+    """
+    Als we dit script runnen komt deze pagina te voor schijn
+    :return: Je krijgt als return de home_page.html, wat ons home pagina is van onze website.
+    """
     return render_template('home_page.html')
 
 @app.route('/about')
 def dynamische_about_pagina():
+    """
+    achtergrond informatie staat er over de tools in de About_pagina.html
+    :return: als je in de adresbalk /about intypt krijg je de About_pagina.html
+    """
     return render_template('About_page.html')
 
 @app.route('/tutorial')
 def tutorial_pagina():
+    """
+    achtergrond informatie staat er over het installeren van de tools in de tutorial_page.html
+    :return: als je in de adresbalk /tutorial intypt krijg je de tutorial_page.html
+    """
     return render_template('tutorial_page.html')
 
 @app.route('/contact', methods=['GET', 'POST'])
 def contact_pagina():
-    if request.method == 'GET':
+    """
+    Hierin wordt er een get en post functie gemaakt, waarin er vanuit de website een connectie
+    naar deze flask functie word gestuurd. Deze functie moet ervoor zorgen dat er een
+    nieuwe pagina wordt weergegeven met de input van de gebruiker die is gestuurd.
+    :return:
+    """
+    if request.method == 'GET': #
         return render_template('contact_page.html')
-
-    elif request.method == 'POST':
+    if request.method == 'POST':
       kwargs = {
           'name' : request.form['name'],
           'email' : request.form['email'],
           'message' : request.form['message']
       }
-    return render_template('contact_page.html', **kwargs)
+    return render_template('contact_us_output.html', **kwargs)
 
 if __name__ == '__main__':
     app.run()

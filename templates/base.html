@@ -12,6 +12,7 @@
     </head>
     <body>
         <ul class="menubar">
+<<<<<<< HEAD
             <li class="left"><a href="{{ url_for('home_pagina') }}"><i class="fa-solid fa-house-chimney"></i>Home</a></li>
             <div class="right">
                 <li><a href="{{ url_for('dynamische_about_pagina') }}">About</a></li>
@@ -19,6 +20,13 @@
                 <li><a href="{{ url_for('tool_gebruiken') }}">Tool</a></li>
                 <li><a href="{{ url_for('contact_pagina') }}">Contact</a></li>
             </div>
+=======
+            <li><a href="{{ url_for('home_pagina') }}">Home</a></li>
+            <li><a href="{{ url_for('tutorial_pagina') }}">Tutorial</a></li>
+            <li><a href="{{ url_for('dynamische_about_pagina') }}">About</a></li>
+            <li><a href="{{ url_for('contact_pagina') }}">Contact</a></li>
+            <li><a href="{{ url_for('tool_page') }}">Tool</a></li>
+>>>>>>> 399f090e8d3ab736065acbd7c3d5f2bfd75844c3
         </ul>
         <div class="content">
             {% block content %}

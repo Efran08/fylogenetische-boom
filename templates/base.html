@@ -14,10 +14,10 @@
         <ul class="menubar">
             <li class="left"><a href="{{ url_for('home_pagina') }}"><i class="fa-solid fa-house-chimney"></i>Home</a></li>
             <div class="right">
-                <li><a href="{{ url_for('tutorial_pagina') }}">Tutorial</a></li>
-                <li><a href="{{ url_for('dynamische_about_pagina') }}">About</a></li>
-                <li><a href="{{ url_for('contact_pagina') }}">Contact</a></li>
-                <li><a href="{{ url_for('tool_gebruiken') }}">Tool</a></li>
+                <li class="right"><a href="{{ url_for('dynamische_about_pagina') }}"><i class="fa-solid fa-circle-info"></i>About</a></li>
+                <li class="right"><a href="{{ url_for('tutorial_pagina') }}"><i class="fa-solid fa-tree"></i>Tutorial</a></li>
+                <li class="right"><a href="{{ url_for('tool_gebruiken') }}"><i class="fa-solid fa-toolbox"></i>Tool</a></li>
+                <li class="right"><a href="{{ url_for('contact_pagina') }}"><i class="fa-solid fa-user"></i>Contact</a></li>
             </div>
         </ul>
         <div class="content">

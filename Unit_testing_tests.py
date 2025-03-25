@@ -35,3 +35,6 @@ class test_sequences(unittest.TestCase):
         found = (['QRSTVWY'])
         expected = (['QRSTVWY']) == True
         self.assertEqual(found, expected)
+
+if __name__ == '__main__':
+    unittest.main()

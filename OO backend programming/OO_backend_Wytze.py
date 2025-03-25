@@ -23,4 +23,4 @@ print (t.write(format=1)) # (A:1.000000,(B:1.000000,(E:1.000000,D:1.000000)Inter
 
 # We can also write into a file
 t.write(format=1, outfile="new_tree.nw")
-
+print (t)

@@ -5,32 +5,39 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Treevolution — Easily create phylogenetic trees right from your browser!</h1>
+    <h1>Example of command-line arguments</h1>
 
-    <h2>Example of command-line arguments</h2>
+    <p><b>Step 1: Generating a Phylogenetic Tree with FastTree:<br><br></b>
+    A basic phylogenetic tree for nucleotide sequences can be generated with:<br>
+    FastTree -nt input.fasta > output.tree<br><br>
+    If you prefer a more accurate tree at the cost of speed, you can use the <code>-slower</code> option along with the GTR model:<br>
+    FastTree -nt -gtr -slower input.fasta > output.tree<br><br>
+    If you're working with protein sequences and want a faster analysis, you can use the WAG model:<br>
+    FastTree -wag -faster input.fasta > output.tree<br><br>
+    To ensure the full header is used, include the <code>-quote</code> option:<br>
+    FastTree -nt -quote input.fasta > output.tree<br><br>
+        <b>Step 2: Visualizing the Tree with ETE Toolkit<br><br></b>
+    To generate a PNG image of the tree, run:<br>
+    ete3 view -t output.tree -o tree.png --format png<br><br>
+    For an SVG file:<br>
+    ete3 view -t output.tree -o tree.svg --format svg --width 800 --height 600<br><br>
+    For a PDF version:<br>
+    ete3 view -t output.tree -o tree.pdf --format pdf<br>
 
-    <h3>Step 1: Generating a Phylogenetic Tree with FastTree</h3>
-    <p>A basic phylogenetic tree for nucleotide sequences can be generated with:</p>
-    <pre>FastTree -nt input.fasta > output.tree</pre>
-
-    <p>If you prefer a more accurate tree at the cost of speed, you can use the <code>-slower</code> option along with the GTR model:</p>
-    <pre>FastTree -nt -gtr -slower input.fasta > output.tree</pre>
-
-    <p>If you're working with protein sequences and want a faster analysis, you can use the WAG model:</p>
-    <pre>FastTree -wag -faster input.fasta > output.tree</pre>
-
-    <p>To ensure the full header is used, include the <code>-quote</code> option:</p>
-    <pre>FastTree -nt -quote input.fasta > output.tree</pre>
-
-    <h3>Step 2: Visualizing the Tree with ETE Toolkit</h3>
-    <p>To generate a PNG image of the tree, run:</p>
-    <pre>ete3 view -t output.tree -o tree.png --format png</pre>
-
-    <p>For an SVG file:</p>
-    <pre>ete3 view -t output.tree -o tree.svg --format svg --width 800 --height 600</pre>
-
-    <p>For a PDF version:</p>
-    <pre>ete3 view -t output.tree -o tree.pdf --format pdf</pre>
-
-    <p>By following these steps, you can easily generate and visualize a phylogenetic tree!</p>
+    By following these steps, you can easily generate and visualize a phylogenetic tree!</p>
 {% endblock %}
+
+{% block footer %}
+        <footer>
+            <div class="footer-container">
+                <div class="footer-column">
+                    <ul>
+                        <li><a href="{{ url_for('home_pagina') }}">Home</a></li>
+                        <li><a href="{{ url_for('dynamische_about_pagina') }}">About</a></li>
+                        <li><a href="{{ url_for('tool_gebruiken') }}">Tool</a></li>
+                        <li><a href="{{ url_for('contact_pagina') }}">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    {% endblock %}

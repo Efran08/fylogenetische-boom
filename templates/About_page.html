@@ -23,3 +23,18 @@
 
         </p>
 {% endblock %}
+
+{% block footer %}
+        <footer>
+            <div class="footer-container">
+                <div class="footer-column">
+                    <ul>
+                        <li><a href="{{ url_for('home_pagina') }}">Home</a></li>
+                        <li><a href="{{ url_for('dynamische_about_pagina') }}">About</a></li>
+                        <li><a href="{{ url_for('tool_gebruiken') }}">Tool</a></li>
+                        <li><a href="{{ url_for('contact_pagina') }}">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    {% endblock %}

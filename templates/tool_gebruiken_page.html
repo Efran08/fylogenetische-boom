@@ -3,6 +3,7 @@
     Invoer Fasta of PHLIYP bestand
 {% endblock %}
 {% block content %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='home_page.css') }}">
     <h1>
         Invoer voor fylogenetische boom:
     </h1>
@@ -10,9 +11,24 @@
     Vul hier je Fasta of PHILYP sequenties in, voor een mooi fylogenetische boom!
     </p>
 
-    <form class="tool_gebruiken" action="" method="post">
+    <form class="contact_form" action="" method="post">
              <label class="large-label" for="sequenties">Sequenties:</label><br>
              <textarea id="sequenties" name="sequenties"></textarea>
                <button name="button" id="button">Submit</button>
            </form>
 {% endblock %}
+
+{% block footer %}
+        <footer>
+            <div class="footer-container">
+                <div class="footer-column">
+                    <ul>
+                        <li><a href="{{ url_for('home_pagina') }}">Home</a></li>
+                        <li><a href="{{ url_for('dynamische_about_pagina') }}">About</a></li>
+                        <li><a href="{{ url_for('tool_gebruiken') }}">Tool</a></li>
+                        <li><a href="{{ url_for('contact_pagina') }}">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    {% endblock %}

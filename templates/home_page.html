@@ -13,6 +13,7 @@
     </p>
     <div class="center-image">
         <img src="{{ url_for('static', filename='treevolution_logo.png') }}" alt="Logo van de website">
+        <img src="{{ url_for('static', filename='fylogenetische-boom.png') }}" alt=" foto van fylogenetische boom">
     </div>
 
 {% endblock %}
@@ -22,8 +23,8 @@
             <div class="footer-container">
                 <div class="footer-column">
                     <ul>
-                        <li><a href="{{ url_for('home_pagina') }}">Home</a></li>
                         <li><a href="{{ url_for('dynamische_about_pagina') }}">About</a></li>
+                        <li><a href="{{ url_for('tutorial_pagina') }}">Tutorial</a></li>
                         <li><a href="{{ url_for('tool_gebruiken') }}">Tool</a></li>
                         <li><a href="{{ url_for('contact_pagina') }}">Contact</a></li>
                     </ul>

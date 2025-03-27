@@ -4,15 +4,54 @@
 {% endblock %}
 {% block content %}
     <h1>
-        Invoer voor fylogenetische boom:
+        Entry for your phylogenetic tree:
     </h1>
     <p>
-    Vul hier je Fasta of PHILYP sequenties in, voor een mooi fylogenetische boom!
+        Submit your pre-alligned multi-fasta or PHYLIP file, by uploading a file.
     </p>
-
-    <form class="tool_gebruiken" action="" method="post">
-             <label class="large-label" for="sequenties">Sequenties:</label><br>
-             <textarea id="sequenties" name="sequenties"></textarea>
-               <button name="button" id="button">Submit</button>
-           </form>
+    <form class="file_upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" required>
+        <button type="submit">Upload file</button> 
+    </form>
+    <div class="dropdown">
+        <button class="dropbtn">Fasttree speed</button>
+        <div class="dropdown-content">
+            <a href="#">Default</a>
+            <a href="#">Faster<br>(less accurate)</a>
+            <a href="#">Slower<br>(more accurate)</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">Fasttree model</button>
+        <div class="dropdown-content">
+            <a href="#">Jukes-Cantor<br>(nucleotides)</a>
+            <a href="#">Generalized time-reversible<br>(nucleotides)</a>
+            <p>---------------------------------</p>
+            <a href="#">Jones-Taylor-Thornton 1992<br>(proteins)</a>
+            <a href="#">Whelan & Goldman 2001<br>(proteins)</a>
+            <a href="#">Le and Gascuel 2008<br>(proteins)</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">Extended species names</button>
+        <div class="dropdown-content">
+            <a href="#">No</a>
+            <a href="#">Yes</a>
+        </div>
+    </div>
 {% endblock %}
+
+{% block footer %}
+        <footer>
+            <div class="footer-container">
+                <div class="footer-column">
+                    <ul>
+                        <li><a href="{{ url_for('home_pagina') }}">Home</a></li>
+                        <li><a href="{{ url_for('dynamische_about_pagina') }}">About</a></li>
+                        <li><a href="{{ url_for('tutorial_pagina') }}">Tutorial</a></li>
+                        <li><a href="{{ url_for('contact_pagina') }}">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    {% endblock %}

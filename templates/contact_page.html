@@ -3,6 +3,7 @@
         Contact Form
     {% endblock %}
     {% block content %}
+        <link rel="stylesheet" href="{{ url_for('static', filename='home_page.css') }}">
 
         <h1>Contact Us</h1>
 
@@ -10,17 +11,35 @@
             Any questions or comments? Please let us know! Fill out the form below.
         </p>
 
- <form class="contact_form" action="" method="post">
+        <form class="contact_form" action="/contact" method="post">
 
              <label class="large-label" for="name">Name:</label><br>
-             <input type="text" id="name" name="name">
+             <input type="text" id="name" name="name" required>
                <br>
              <label class="large-label" for="email">Email:</label><br>
-             <input type="text" id="email" name="email"><br>
+             <input type="text" id="email" name="email" required>
+                <br>
              <label class="large-label" for="message">Message:</label><br>
-             <textarea id="message" name="message"></textarea>
+             <textarea id="message" name="message" required></textarea>
                <button name="button" id="button">Submit</button>
-           </form>
+        </form>
+
     {% endblock %}
-     </body>
+
+    {% block footer %}
+        <footer>
+            <div class="footer-container">
+                <div class="footer-column">
+                    <ul>
+                        <li><a href="{{ url_for('home_pagina') }}">Home</a></li>
+                        <li><a href="{{ url_for('dynamische_about_pagina') }}">About</a></li>
+                        <li><a href="{{ url_for('tool_gebruiken') }}">Tool</a></li>
+                        <li><a href="{{ url_for('tutorial_pagina') }}">Tutorial</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    {% endblock %}
+
+
 

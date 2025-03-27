@@ -25,26 +25,32 @@ html, body {
     margin-right: 5px;
 }
   
-  li {
+li {
     float: left;
-  }
+}
 
-  li a {
+li a {
     display: block;
     color: white;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
     font-family: Arial, Helvetica, sans-serif;
-  }
+}
   
-  li a:hover:not(.active) {
+li a:hover:not(.active) {
     background-color: #1e8449 ;
-  }
+}
   
-  .active {
+.active {
     background-color: #1e8449;
-  }
+}
+
+ul{
+    list-style: none;
+    padding: 0;
+    margin: 10px;
+}
 
 
 h1 {
@@ -63,12 +69,13 @@ p {
 
 img {
     width: 500px;
+    padding: 0 50px;
     height: 500px;
 }
 
 .center-image{
     display: flex;
-    justify-content: right;
+    justify-content: center;
     align-items: center;
     height: 75vh;
 
@@ -81,11 +88,9 @@ img {
 
 
 footer {
-    background-color: #1e8449;
+    background-color: #2d6a4f;
     width: 100%;
     display: flex;
-    color: white;
-    margin: 0;
     padding: 30px 0;
     justify-content: center;
     align-items: center;
@@ -128,4 +133,7 @@ footer {
     background-color: #27ae60;
 }
 
+ a {
+     text-decoration: none;
+ }
 

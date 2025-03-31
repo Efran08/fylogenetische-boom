@@ -1,10 +1,14 @@
 import subprocess
 
-class fasttree:
-    def __init__(self, file, tool_speed, tool_model, tool_expand_chars):
+class FastTree:
+    def __init__(self, file):
         self.file = file
-        self.tool_speed = tool_speed
-        self.tool_model = tool_model
-        self.tool_expand_chars = tool_expand_chars
+    
+    def run_fasttree(self):
+        output_file = "output.nw"
+        with open(output_file, "w") as out:
+            subprocess.run(["FastTree", self.file], stdout=out, check=True)
+        print(f"FastTree finished. Output saved to {output_file}")
+
     def __str__(self):
-        
+        return f"FastTree instance processing file: {self.file}"

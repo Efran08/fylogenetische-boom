@@ -6,8 +6,9 @@
 
 {% block content %}
     <h1>Example of command-line arguments</h1>
+    <h2><a href="https://morgannprice.github.io/fasttree/#Distance" target="_blank"> Step 1: Generating a Phylogenetic Tree with FastTree:</a></h2>
 
-    <p><a href="https://morgannprice.github.io/fasttree/#Distance" target="_blank"> Step 1: Generating a Phylogenetic Tree with FastTree:</a><br><br></b>
+    <p>
     A basic phylogenetic tree for nucleotide sequences can be generated with:<br>
     FastTree -nt input.fasta > output.tree<br><br>
     If you prefer a more accurate tree at the cost of speed, you can use the <code>-slower</code> option along with the GTR model:<br>
@@ -15,8 +16,9 @@
     If you're working with protein sequences and want a faster analysis, you can use the WAG model:<br>
     FastTree -wag -faster input.fasta > output.tree<br><br>
     To ensure the full header is used, include the <code>-quote</code> option:<br>
-    FastTree -nt -quote input.fasta > output.tree<br><br>
-        <b>Step 2: Visualizing the Tree with ETE Toolkit<br><br></b>
+        FastTree -nt -quote input.fasta > output.tree<br><br></p>
+    
+    <h2>Step 2: Visualizing the Tree with ETE Toolkit<br><br></h2><p>
     To generate a PNG image of the tree, run:<br>
     ete3 view -t output.tree -o tree.png --format png<br><br>
     For an SVG file:<br>

@@ -8,9 +8,11 @@ versie 1.3
 """
 
 from flask import Flask, render_template, request
+import os
 
 app = Flask(__name__)
-
+UPLOAD_FOLDER = '/homes/hjwilts/tmp'
+ALLOWED_EXTENSIONS = {'fasta', 'phylip', 'fa', 'phy'}
 
 @app.route('/')
 def home_pagina():
@@ -42,7 +44,23 @@ def tool_gebruiken():
     Hier vul je een Fasta of PHILYP bestand in.
     :return: een fylogenetische-boom
     """
-    return render_template('tool_gebruiken_page.html')
+    if request.method == 'GET':
+        # defalt response when a form is called. Renders 'form/form_file_upload.html'
+        return render_template('tool_gebruiken_page.html')
+
+    elif request.method == 'POST':
+        # response when the submit button is clicked in the 'form/form_file_upload.html'
+        # get file from request object
+        
+        f = request.files['file']
+
+        file_path = os.path.join(UPLOAD_FOLDER, f.filename)
+
+        f.save(file_path)
+        tree_output = "hier komt later een fylogenetische boom"
+
+        # resulting barplot is passed to the the HTML_visualization_template.html rendered page
+        return render_template('tool_output.html', tree=tree_output)
 
 @app.route('/contact', methods=['GET', 'POST'])
 def contact_pagina():

@@ -13,12 +13,14 @@
     </head>
     <body>
         <ul class="menubar">
-            <li class="left"><a href="{{ url_for('home_pagina') }}"><i class="fa-solid fa-house-chimney"></i>Home</a></li>
+            <li class="left"><a href="{{ url_for('home_pagina') }}" class="{% if request.endpoint == 'home_pagina' %}active{% endif %}"><i class="fa-solid fa-house-chimney"></i>Home</a></li>
             <div class="right">
-                <li class="right"><a href="{{ url_for('dynamische_about_pagina') }}"><i class="fa-solid fa-circle-info"></i>About</a></li>
-                <li class="right"><a href="{{ url_for('tutorial_pagina') }}"><i class="fa-solid fa-tree"></i>Tutorial</a></li>
-                <li class="right"><a href="{{ url_for('tool_gebruiken') }}"><i class="fa-solid fa-toolbox"></i>Tool</a></li>
-                <li class="right"><a href="{{ url_for('contact_pagina') }}"><i class="fa-solid fa-user"></i>Contact</a></li>
+                <ul>
+                <li class="right"><a href="{{ url_for('dynamische_about_pagina') }}" class="{% if request.endpoint == 'dynamische_about_pagina' %}active{% endif %}"><i class="fa-solid fa-circle-info"></i>About</a></li>
+                <li class="right"><a href="{{ url_for('tutorial_pagina') }}" class="{% if request.endpoint == 'tutorial_pagina' %}active{% endif %}"><i class="fa-solid fa-tree"></i>Tutorial</a></li>
+                <li class="right"><a href="{{ url_for('tool_gebruiken') }}" class="{% if request.endpoint == 'tool_gebruiken' %}active{% endif %}"><i class="fa-solid fa-toolbox"></i>Tool</a></li>
+                <li class="right"><a href="{{ url_for('contact_pagina') }}" class="{% if request.endpoint == 'contact_pagina' %}active{% endif %}"><i class="fa-solid fa-user"></i>Contact</a></li>
+                </ul>
             </div>
         </ul>
         <div class="content">

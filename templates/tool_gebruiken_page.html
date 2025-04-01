@@ -6,9 +6,9 @@
     <h1>
         Entry for your phylogenetic tree:
     </h1>
-    <p>
+    <h2>
         Submit your pre-alligned multi-fasta or PHYLIP file, by uploading a file.
-    </p>
+    </h2>
     <form class="file_upload" method="post" enctype="multipart/form-data">
         <input type="file" name="file" required>
         <button type="submit">Upload file</button> 
@@ -46,10 +46,10 @@
             <div class="footer-container">
                 <div class="footer-column">
                     <ul>
-                        <li><a href="{{ url_for('home_pagina') }}">Home</a></li>
-                        <li><a href="{{ url_for('dynamische_about_pagina') }}">About</a></li>
-                        <li><a href="{{ url_for('tutorial_pagina') }}">Tutorial</a></li>
-                        <li><a href="{{ url_for('contact_pagina') }}">Contact</a></li>
+                        <li><a href="{{ url_for('home_pagina') }}"><i class="fa-solid fa-house-chimney"></i>Home</a></li>
+                        <li><a href="{{ url_for('dynamische_about_pagina') }}"><i class="fa-solid fa-circle-info"></i>About</a></li>
+                        <li><a href="{{ url_for('tutorial_pagina') }}"><i class="fa-solid fa-tree"></i>Tutorial</a></li>
+                        <li><a href="{{ url_for('contact_pagina') }}"><i class="fa-solid fa-user"></i>Contact</a></li>
                     </ul>
                 </div>
             </div>

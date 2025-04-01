@@ -38,7 +38,7 @@ def tutorial_pagina():
     """
     return render_template('tutorial_page.html')
 
-@app.route('/tool')
+@app.route('/tool', methods=['GET', 'POST'])
 def tool_gebruiken():
     """
     Hier vul je een Fasta of PHILYP bestand in.
@@ -48,7 +48,7 @@ def tool_gebruiken():
         # defalt response when a form is called. Renders 'form/form_file_upload.html'
         return render_template('tool_gebruiken_page.html')
 
-    elif request.method == 'POST':
+    if request.method == 'POST':
         # response when the submit button is clicked in the 'form/form_file_upload.html'
         # get file from request object
         
@@ -59,7 +59,6 @@ def tool_gebruiken():
         f.save(file_path)
         tree_output = "hier komt later een fylogenetische boom"
 
-        # resulting barplot is passed to the the HTML_visualization_template.html rendered page
         return render_template('tool_output.html', tree=tree_output)
 
 @app.route('/contact', methods=['GET', 'POST'])

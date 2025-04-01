@@ -6,7 +6,7 @@ class FastTree:
     
     def run_fasttree(self):
         output_file = "output.nw"
-        with open(output_file, "w") as out:
+        with open(self.output_file,"w") as out:
             subprocess.run(["FastTree", self.file], stdout=out, check=True)
         print(f"FastTree finished. Output saved to {output_file}")
 

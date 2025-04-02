@@ -13,7 +13,7 @@ class FastTree:
         
     def run_ete_toolkit(self):
         with open(self.output_newick, "w") as img_out:
-            subprocess.run(["ete3", "view", "-t", self.output_file], stdout=img_out, check=True)
+            subprocess.run(["/homes/hjwilts/ete_env/bin/ete3", "view", "-t", self.output_file], stdout=img_out, check=True)
         
     def __str__(self):
         return f"FastTree instance processing file: {self.file}"

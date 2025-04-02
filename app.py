@@ -13,7 +13,7 @@ from fasttree import FastTree
 
 
 app = Flask(__name__)
-UPLOAD_FOLDER = 'fylogenetische-boom/Uploads'
+UPLOAD_FOLDER = 'fylogenetische-boom/static'
 ALLOWED_EXTENSIONS = {'fasta', 'phylip', 'fa', 'phy'}
 
 @app.route('/')

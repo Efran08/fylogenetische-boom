@@ -56,8 +56,7 @@ def tool_gebruiken():
         
         f = request.files['file']
 
-        file_path = os.path.join(
-            UPLOAD_FOLDER, f.filename)
+        file_path = os.path.join(UPLOAD_FOLDER, f.filename)
 
         f.save(file_path)
 

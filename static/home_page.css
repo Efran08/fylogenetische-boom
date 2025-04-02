@@ -153,11 +153,11 @@ footer {
 
 /*een methode die bestaat voor buttons*/
 .button-style {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
     background-color: #1e8449;
     color: white;
     padding: 10px 15px;
-    font-size: 15px;
-    font-family: Arial, Helvetica, sans-serif;
     cursor: pointer;
     border-radius: 5px;
     text-align: center;
@@ -167,15 +167,14 @@ footer {
     background-color: #27ae60;
 }
 
-
 .dropbtn {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    background-color: #1e8449;
+    color: white;
     width: 200px;
     text-align: center;
     padding: 10px 15px;
-    background-color: #1e8449;
-    color: white;
-    font-size: 15px;
-    font-family: Arial, Helvetica, sans-serif;
     cursor: pointer;
     border-radius: 5px;
 }
@@ -184,12 +183,17 @@ footer {
     background-color: #27ae60;
 }
 
+.dropbtn::after {
+    content: "select option";
+}
+
+
 .file_upload button {
-    width: 200px;
-    padding: 10px 15px;
     background-color: #1e8449;
     color: white;
     font-size: 16px;
+    width: 200px;
+    padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
     text-align: center;
@@ -200,11 +204,11 @@ footer {
 }
 
 .file_upload input[type="file"] {
+    background-color: white;
     border: 2px solid #1e8449;
     padding: 8px;
     border-radius: 5px;
     cursor: pointer;
-    background-color: white;
 }
 
 .container {
@@ -221,10 +225,6 @@ footer {
     gap: 15px;
     padding: 15px;
     align-items: center;
-}
-
-.dropbtn::after {
-    content: "select option";
 }
 
 .dropdown input {
@@ -281,8 +281,8 @@ footer {
 }
 
 .dropdown-content label {
-    color: black;
     font-family: Arial, Helvetica, sans-serif;
+    color: black;
     font-size: 15px;
     padding: 5px 16px;
     text-decoration: none;

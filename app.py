@@ -62,6 +62,7 @@ def tool_gebruiken():
 
         fasttree = FastTree(file_path)
         fasttree.run_fasttree()
+        fasttree.run_ete_toolkit()
 
         tree_output = "hier komt later een fylogenetische boom"
 

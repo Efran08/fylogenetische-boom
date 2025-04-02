@@ -7,13 +7,13 @@ versie 1.3
 21-03-25
 """
 
-from flask import Flask, render_template, request
 import os
+from flask import Flask, render_template, request
 from fasttree import FastTree
 
 
 app = Flask(__name__)
-UPLOAD_FOLDER = '/homes/hjwilts/tmp'
+UPLOAD_FOLDER = 'fylogenetische-boom/Uploads'
 ALLOWED_EXTENSIONS = {'fasta', 'phylip', 'fa', 'phy'}
 
 @app.route('/')
@@ -56,7 +56,8 @@ def tool_gebruiken():
         
         f = request.files['file']
 
-        file_path = os.path.join(UPLOAD_FOLDER, f.filename)
+        file_path = os.path.join(
+            UPLOAD_FOLDER, f.filename)
 
         f.save(file_path)
 

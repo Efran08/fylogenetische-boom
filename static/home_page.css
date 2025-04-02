@@ -9,21 +9,25 @@ html, body {
 .menubar {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     list-style-type: none;
+    align-items: center;
     margin: 0;
     padding: 0 50px;
     background-color: #27ae60 ;
   }
 
-.menubar .right{
-    display: flex;
+.menubar .left{
+    margin-right: auto;
+}
+
+.menubar li{
+    padding: 10px 15px;
 }
 
 .menubar i{
     margin-right: 5px;
 }
-  
+
 li {
     float: left;
 }

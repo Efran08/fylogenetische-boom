@@ -1,11 +1,10 @@
-import os
 import subprocess
 
 class FastTree:
     def __init__(self, file):
-        self.file = os.path.abspath(file)
-        self.output_file = os.path.abspath("output.nw")
-        self.output_newick = os.path.abspath("newick.png")
+        self.file = file
+        self.output_file = "output.nw"
+        self.output_newick = "newick.png"
     
     def run_fasttree(self):
         with open(self.output_file, "w") as nw_out:

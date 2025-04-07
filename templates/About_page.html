@@ -14,9 +14,32 @@
         <span class = "alinea-title"></span>
 
             Fasttree is a software program that we use for it speed and efficiency in generating a phylogenetic tree. It takes as input an aligned nucleotide or protein sequence in FASTA or PHYLIP format. Fasttree is a special toolkit because it can handle large datasets with thousands of sequences.<br><br>
-            Despite the handling of long data, fasttree quickly constructs a phylogenetic tree and outputs it in Newick-format(.nwk), which is used for visualization tools. If you want to use Fasttree, you must do that via the command line, but it must be installed on your computer. <a href="https://morgannprice.github.io/fasttree/" target="_blank"> For the install of fasttree click this sentence.</a><br><br>
+            Despite the handling of long data, Fasttree quickly constructs a phylogenetic tree and outputs it in Newick-format(.nwk), which is used for visualization tools. If you want to use Fasttree, you must do that via the command line, but it must be installed on your computer. <a href="https://morgannprice.github.io/fasttree/" target="_blank"> For the install of fasttree click this sentence.</a><br><br>
             Fasttree use an approximation of maximum likelihood method (ML). This means that it constructs phylogenetic trees while maintaining a balance between computational speed and accuracy. Fasttree supports different evolutionary models, such as GTR for DNA and WAG for proteins. It can also include gamma-disturbed rate variation for better branch length estimation.<br><br>
-            Although Fasttree is faster than Ml-based programs like RAxML or PhyML, it is slightly less accurate. However, Fasttree is a powerful tool to use for phylogenetic trees<br><br></p>
+            Although Fasttree is faster than Ml-based programs like RAxML or PhyML, it is slightly less accurate. However, Fasttree is a powerful tool to use for phylogenetic trees<br><br>
+            The options that are available for Fasttree are the speed, where a quicker made tree is less accurate, a slower tree is more accurate and the default speed is a balance between those. The parameter for the model is devided in nucleotides and proteins.
+            For nucleotides you can choose between Jukes-Cantor or Generalized time-reversible. The Jukes-Cantor model is default for nucleotides and it works by a formula that calculates the distance. The formula goes as followed: d = -(3/4) log(1 - (4/3)p), where p is the proportion of non-gap positions that differ.
+            <a href="http://www.microbesonline.org/fasttree/FastTree-NNI-preprint.pdf" target="_blank">For more information about the Jukes-Cantor model click this sentence.</a><br><br>
+            The other model for nucleotides is the GTR model, which stands for generalised time reversible. The GTR model is more accurate than the Jukes-Canter model, but it is slower. GTR works with the equilibrium base frequency vector that nucleotides have, giving the frequency at which each base occurs at each site and the rate matrix<br><br>
+            <img src="{{ url_for('static', filename='Formule GTR.png') }}" alt="Formule GTR" style="width: 600px; height: auto"><br><br>
+            <a href="https://en.wikipedia.org/wiki/Substitution_model#GTR:_Generalised_time_reversible" target="_blank">For more information about the GTR model click this sentence.</a><br><br>
+
+            For proteins are 3 models available. The default here is the Jones-Taylor-Thornton 1992 model. This model works by aligning the closest relating pairs of sequences. The pairs where the sequences differ from eachother are added up into a matrix. This matrix is processed by 2 formulas and they go as followed:<br><br>
+            <img src="{{ url_for('static', filename='Formula 1 pam model.png') }}" alt="Formula 1 pam" style="width: 150px; height: auto" ><br><br>
+            <img src="{{ url_for('static', filename='Formula 2 pam .png') }}" alt="Formula 2 pam" style="width: 150px; height: auto"> <br><br>
+            If you want more information about the Jones-Taylor-Thornton 1992 model, <a href="https://pubmed.ncbi.nlm.nih.gov/1633570/" target="_blank">click here</a><br><br>
+            If you want more information about the formulas from the JTT 1992 model, <a href="https://cs.rice.edu/~ogilvie/comp571/pam/" target="blank">click here</a><br><br>
+
+            The second model for proteins is Whelan & Goldman 2001 model. This model is more accurate than the JTT 1992 model, because the JTT 1992 model relies on assumptions that may lead to systematic errors and a discard of a large amount of information. The structure of the Whelan & Goldman 2001 model is similar to the JTT 1992 model but the Whelan & Goldman 2001 model applies the maximum likelihood values. This provides a better overall fit to the evolutionary process in globular proteins and may lead to more accurate phylogenetic tree estimates. <br><br>
+            For more information about the Whelan & Goldman 2001 model, <a href="https://pubmed.ncbi.nlm.nih.gov/11319253/" target="_blank">click here</a><br><br>
+
+            The third and last model is Le and Gascuel 2008 model. This model is the most accurate model for the protein sequences. The LG 2008 model improved upon the WAG (Whelan and Goldman) 2001 model. The improvements in the LG 2008 model contains a bigger database then the WAG 2001 model uses. Important to note is that the LG 2008 model is better than WAG for 38 alignments but worse when there are only 2 alignments. <br><br>
+            For more information about the LG 2008 model, <a href="https://pubmed.ncbi.nlm.nih.gov/18367465/" target="_blank">click here</a><br><br>
+
+            The last parameter to choose is the species name. You can choose between the extendend species name, which will show up as for instance: >NT_033779.5:c7795959-7791175 LKRSDH [organism=Drosophila melanogaster] [GeneID=34064] [chromosome=2L]. In this sentence information about the species, the gene, the protein and the chromosome is shown. If you choose for no extended species name, it will only show the organism. <br><br>
+    </p>
+
+
 
                 <h2>Information ETE toolkit:<br></h2>
             <p>The ETE (Eniviroment for Tree Exploration) toolkit can be used for making phylogenetic tree. The tool assist in analyzing and visualizing of making phylogenetic trees. With this tool you can make small and big trees and it will visualize in professional way.<br><br>

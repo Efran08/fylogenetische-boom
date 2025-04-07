@@ -6,25 +6,28 @@ html, body {
     background-color: #F5F5DC;
 }
 
-
 .menubar {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     list-style-type: none;
+    align-items: center;
     margin: 0;
     padding: 0 50px;
     background-color: #27ae60 ;
   }
 
-.menubar .right{
-    display: flex;
+.menubar .left{
+    margin-right: auto;
+}
+
+.menubar li{
+    padding: 10px 15px;
 }
 
 .menubar i{
     margin-right: 5px;
 }
-  
+
 li {
     float: left;
 }
@@ -52,6 +55,9 @@ ul{
     margin: 10px;
 }
 
+ul li a i{
+    margin-right: 5px;
+}
 
 h1 {
     font-family: Arial, Helvetica, sans-serif;
@@ -72,6 +78,11 @@ p {
     margin: 0 auto;
     font-size: 15px;
 }
+
+ a {
+     text-decoration: none;
+ }
+
 
 
 img {
@@ -140,56 +151,153 @@ footer {
     background-color: #27ae60;
 }
 
- a {
-     text-decoration: none;
- }
+/*een methode die bestaat voor buttons*/
+.button-style {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    background-color: #1e8449;
+    color: white;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+}
 
- /* Dropdown Button */
- .dropbtn {
-  background-color: #1e8449;
-  color: white;
-  padding: 10px;
-  font-size: 15px;
-  font-family: Arial, Helvetica, sans-serif;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
+.button-style:hover {
+    background-color: #27ae60;
+}
+
+.dropbtn {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    background-color: #1e8449;
+    color: white;
+    width: 200px;
+    text-align: center;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
 }
 
 .dropbtn:hover {
-  background-color: #27ae60;
+    background-color: #27ae60;
 }
-/* The container <div> - needed to position the dropdown content */
+
+.dropbtn::after {
+    content: "select option";
+}
+
+
+.file_upload button {
+    background-color: #1e8449;
+    color: white;
+    font-size: 16px;
+    width: 200px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.file_upload button:hover {
+    background-color: #27ae60;
+}
+
+.file_upload input[type="file"] {
+    background-color: white;
+    border: 2px solid #1e8449;
+    padding: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.file_upload {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px;
+    align-items: center;
+}
+
+.dropdown input {
+    display: none;
+}
+
+#opt-speed-default:checked ~ .dropbtn::after {
+    content: "Default";
+}
+#opt-speed-faster:checked ~ .dropbtn::after {
+    content: "Faster (less accurate)";
+}
+#opt-speed-slower:checked ~ .dropbtn::after {
+    content: "Slower (more accurate)";
+}
+
+#opt-model-jc:checked ~ .dropbtn::after {
+    content: "Jukes-Cantor";
+}
+#opt-model-gtr:checked ~ .dropbtn::after {
+    content: "Generalized time-reversible";
+}
+#opt-model-jtt:checked ~ .dropbtn::after {
+    content: "Jones-Taylor-Thornton";
+}
+#opt-model-wg:checked ~ .dropbtn::after {
+    content: "Whelan & Goldman";
+}
+#opt-model-lg:checked ~ .dropbtn::after {
+    content: "Le and Gascuel";
+}
+
+#opt-names-no:checked ~ .dropbtn::after {
+    content: "No";
+}
+#opt-names-yes:checked ~ .dropbtn::after {
+    content: "Yes";
+}
+
 .dropdown {
-  position: relative;
-  display: inline-block;
+    position: relative;
+    display: inline-block;
+    margin: 10px;
 }
 
-/* Dropdown Content (Hidden by Default) */
 .dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 140px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
+    display: none;
+    position: absolute;
+    min-width: 140px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    background-color: #f1f1f1;
+    border-radius: 5px;
 }
 
-/* Links inside the dropdown */
-.dropdown-content a {
-  color: black;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 15px;
-  padding: 5px 16px;
-  text-decoration: none;
-  display: block;
+.dropdown-content label {
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    font-size: 15px;
+    padding: 5px 16px;
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
 }
 
-/* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #ddd;}
+.dropdown-content label:hover {
+    background-color: #ddd;
+}
 
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
 
-/* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {background-color: #3e8e41;}
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}

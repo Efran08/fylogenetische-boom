@@ -6,39 +6,57 @@
     <h1>
         Entry for your phylogenetic tree:
     </h1>
+    <h2>
+        Submit your pre-alligned protein/nucleotide multi-fasta or PHYLIP file, by uploading a file.
+    </h2>
     <p>
-        Submit your pre-alligned multi-fasta or PHYLIP file, by uploading a file.
+    Blok 1: Choose your file,<br>  Blok 2: Change the speed of creating a phylogenetic tree,<br>
+        Blok 3: Type of Fasttree model,<br> Blok 4: Extended species names,<br> Blok 5: Uploading.
     </p>
     <form class="file_upload" method="post" enctype="multipart/form-data">
         <input type="file" name="file" required>
-        <button type="submit">Upload file</button> 
     </form>
-    <div class="dropdown">
-        <button class="dropbtn">Fasttree speed</button>
-        <div class="dropdown-content">
-            <a href="#">Default</a>
-            <a href="#">Faster<br>(less accurate)</a>
-            <a href="#">Slower<br>(more accurate)</a>
+    <div class="container">
+        <div class="dropdown">
+            <input type="radio" id="opt-speed-default" name="dropdown" checked>
+            <input type="radio" id="opt-speed-faster" name="dropdown">
+            <input type="radio" id="opt-speed-slower" name="dropdown">
+            <button class="dropbtn"></button>
+            <div class="dropdown-content">
+                <label for="opt-speed-default">Default</label>
+                <label for="opt-speed-faster">Faster<br>(less accurate)</label>
+                <label for="opt-speed-slower">Slower<br>(more accurate)</label>
+            </div>
+        </div>
+        <div class="dropdown">
+            <input type="radio" id="opt-model-jc" name="dropdown-model" checked>
+            <input type="radio" id="opt-model-gtr" name="dropdown-model">
+            <input type="radio" id="opt-model-jtt" name="dropdown-model">
+            <input type="radio" id="opt-model-wg" name="dropdown-model">
+            <input type="radio" id="opt-model-lg" name="dropdown-model">
+            <button class="dropbtn"></button>
+            <div class="dropdown-content">
+                <label for="opt-model-jc">Jukes-Cantor (nucleotides)</label>
+                <label for="opt-model-gtr">Generalized time-reversible (nucleotides)</label>
+                <p>---------------------------------</p>
+                <label for="opt-model-jtt">Jones-Taylor-Thornton 1992 (proteins)</label>
+                <label for="opt-model-wg">Whelan & Goldman 2001<br>(proteins)</label>
+                <label for="opt-model-lg">Le and Gascuel 2008<br>(proteins)</label>
+            </div>
+        </div>
+        <div class="dropdown">
+            <input type="radio" id="opt-names-yes" name="dropdown-names" checked>
+            <input type="radio" id="opt-names-no" name="dropdown-names">
+            <button class="dropbtn"></button>
+            <div class="dropdown-content">
+                <label for="opt-names-no">No</label>
+                <label for="opt-names-yes">Yes</label>
+            </div>
         </div>
     </div>
-    <div class="dropdown">
-        <button class="dropbtn">Fasttree model</button>
-        <div class="dropdown-content">
-            <a href="#">Jukes-Cantor<br>(nucleotides)</a>
-            <a href="#">Generalized time-reversible<br>(nucleotides)</a>
-            <p>---------------------------------</p>
-            <a href="#">Jones-Taylor-Thornton 1992<br>(proteins)</a>
-            <a href="#">Whelan & Goldman 2001<br>(proteins)</a>
-            <a href="#">Le and Gascuel 2008<br>(proteins)</a>
-        </div>
-    </div>
-    <div class="dropdown">
-        <button class="dropbtn">Extended species names</button>
-        <div class="dropdown-content">
-            <a href="#">No</a>
-            <a href="#">Yes</a>
-        </div>
-    </div>
+    <form class="file_upload" method="post" enctype="multipart/form-data">
+    <button type="submit">Upload file</button>
+    </form>
 {% endblock %}
 
 {% block footer %}
@@ -46,12 +64,16 @@
             <div class="footer-container">
                 <div class="footer-column">
                     <ul>
-                        <li><a href="{{ url_for('home_pagina') }}">Home</a></li>
-                        <li><a href="{{ url_for('dynamische_about_pagina') }}">About</a></li>
-                        <li><a href="{{ url_for('tutorial_pagina') }}">Tutorial</a></li>
-                        <li><a href="{{ url_for('contact_pagina') }}">Contact</a></li>
+                        <li><a href="{{ url_for('home_pagina') }}"><i class="fa-solid fa-house-chimney"></i>Home</a></li>
+                        <li><a href="{{ url_for('dynamische_about_pagina') }}"><i class="fa-solid fa-circle-info"></i>About</a></li>
+                        <li><a href="{{ url_for('tutorial_pagina') }}"><i class="fa-solid fa-tree"></i>Tutorial</a></li>
+                        <li><a href="{{ url_for('contact_pagina') }}"><i class="fa-solid fa-user"></i>Contact</a></li>
                     </ul>
                 </div>
             </div>
         </footer>
     {% endblock %}
+
+
+Extended species names
+

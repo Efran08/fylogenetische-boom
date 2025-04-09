@@ -92,17 +92,20 @@ def contact_pagina():
     return render_template('contact_us_output.html', **kwargs)
 
 if __name__ == '_main_':
+    # # Start de profiler
+    # profiler = cProfile.Profile()
+    # profiler.enable()  # Start het verzamelen van gegevens
 
-    profiler = cProfile.Profile()
-    profiler.enable()
-
+    # Run de Flask-applicatie
     app.run(debug=True)
 
-    profiler.disable()
-    profiler.dump_stats('output.prof')
+    # Stop de profiler na het uitvoeren van de app
+    # profiler.disable()
+    # profiler.dump_stats('output.prof')  # Sla de gegevens op in output.prof
 
-    stats = pstats.Stats('output.prof')
-    stats.strip_dirs()
-    stats.sort_stats('cumtime')
-    stats.print_stats(5)
-    stats.dump_stats('filtered_output.prof')
+    # # Analyseer de verzamelde gegevens met pstats
+    # stats = pstats.Stats('output.prof')
+    # stats.strip_dirs()  # Verwijder de padinformatie om het overzichtelijker te maken
+    # stats.sort_stats('time')  # Sorteer op tijdsduur
+    # stats.print_stats(10)  # Toon de top 10 functies die het meeste tijd verbruiken
+    # stats.dump_stats('filtered_output.prof')  # Sla de gefilterde gegevens op

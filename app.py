@@ -8,7 +8,7 @@ versie 1.3
 """
 
 import os
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, url_for
 from fasttree import FastTree
 
 
@@ -61,11 +61,16 @@ def tool_gebruiken():
 
         f.save(file_path)
 
-        fasttree = FastTree(file_path)
+        fasttree = FastTree(
+            file_path, 
+            output_file="output.nw", 
+            output_image=os.path.join("static", "tree.png")
+        )
+
         fasttree.run_fasttree()
         fasttree.render_tree_image()
 
-        tree_output = "hier komt later een fylogenetische boom"
+        tree_output = url_for('static', filename='tree.png')
 
         return render_template('tool_output.html', tree=tree_output)
 

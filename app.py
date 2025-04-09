@@ -7,10 +7,9 @@ versie 1.3
 21-03-25
 """
 
-import os
+import cProfile, pstats, os
 from flask import Flask, render_template, request, url_for
 from fasttree import FastTree
-
 
 app = Flask(__name__)
 UPLOAD_FOLDER = os.path.join(app.root_path, 'uploads')
@@ -92,5 +91,18 @@ def contact_pagina():
       }
     return render_template('contact_us_output.html', **kwargs)
 
-if __name__ == '__main__':
+if __name__ == '_main_':
+
+    profiler = cProfile.Profile()
+    profiler.enable()
+
     app.run(debug=True)
+
+    profiler.disable()
+    profiler.dump_stats('output_prof')
+
+    stats = pstats.Stats('output.prof')
+    stats.strip_dirs()
+    stats.sort_stats('cumtime')
+    stats.print_stats(5)
+    stats.dump_stats('filtered_output.prof')

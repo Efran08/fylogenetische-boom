@@ -1,9 +1,9 @@
-# The Magic Tree
+# Treevolution
 
 Version 1.0 03/03/25
 
 ### Product description
-This readme belongs to a website called The Magic Tree. The Magic Tree is able to display a phylogenetic tree. This 
+This readme belongs to a website called Treevolution. Treevolution is able to display a phylogenetic tree. This 
 tree is customizable through files the user is able to upload and the user can choose different parameters from a given 
 selection. The changeable parameters are the speed, the model and how the first line will be read. The user can choose
 between a standard, faster or slower speed. The  slower the speed, the more accurate the tree will be. The model is 
@@ -15,16 +15,17 @@ sequence and it starts with ">". The default here is to quit reading the line th
 If the upload does not have a ">", the default setting is to read the whole line. 
 
 First, the uploaded file will be formatted to a Newick file. This file will be formatted with the tool Fasttree and
-when the Newick file is made, it will be visualised by ETE Toolkit. ETE Toolkit will return a SVG that will be 
+when the Newick file is made, it will be visualised by Biopython. Biopython will return a SVG that will be 
 displayed on the website.
 
 ### Install instructions
-Voor het installeren van het programma ETE toolkit gebruiken we de commando’s:
-* python3 -m venv ete_env
-* source ete_env/bin/activate
-* pip install ete3
+Voor het installeren van het programma Biopython gebruiken we de commando:
+* pip install biopython
 
-Dit zorgt ervoor dat we ETE toolkit kunnen installeren zonder admin privileges
+Dit zorgt ervoor dat we Biopython kunnen installeren zonder admin privileges
+
+Voor het updaten van biopython:
+* pip install biopython --upgrade
 
 Voor het installeren van het programma Fasttree gebruiken we:
 * wget http://www.microbesonline.org/fasttree/FastTree -O ~/FastTree
@@ -51,18 +52,18 @@ FastTree -wag -faster input.fasta > output.tree
 Sometimes, FASTA headers contain spaces, and by default, FastTree only reads the first word. To ensure the full header is used, include the -quote option:
 FastTree -nt -quote input.fasta > output.tree
 
-Step 2: Visualizing the Tree with ETE Toolkit
-Now that we have a tree in Newick format, we need a way to visualize it. This is where ETE Toolkit comes into play.
+Step 2: Visualizing the Tree with Biopython
+Now that we have a tree in Newick format, we need a way to visualize it. This is where Biopython comes into play.
 
 To generate a PNG image of the tree, run:
-ete3 view -t output.tree -o tree.png --format png
+Biopython view -t output.tree -o tree.png --format png
 
 If you prefer an SVG file and want to adjust the image size (e.g., 800x600 pixels), use:
-ete3 view -t output.tree -o tree.svg --format svg --width 800 --height 600
+Biopython view -t output.tree -o tree.svg --format svg --width 800 --height 600
 
 For a PDF version, simply use:
 
-ete3 view -t output.tree -o tree.pdf --format pdf
+Biopython view -t output.tree -o tree.pdf --format pdf
 
 ### Authors
 Herke Wilts: hj.wilts@st.hanze.nl
@@ -75,4 +76,4 @@ Wytze Meijer: wh.meijer@st.hanze.nl
 To build the phylogenetic trees we use fasttree. Fasttree is a program that builds phylogenetic trees to compare species or determine what species organism belong to.
 Fasttree is an CLI tool and uses FASTA- or phylipfiles to build Newick phylogenetic tree formats.
 
-We also use visualization tool ETE Toolkit. This tool can read a Newick file and save or change it as an SVG, PNG, or PDF.
+We also use visualization tool Biopython. This tool can read a Newick file and save or change it as an SVG, PNG, or PDF.

@@ -1,4 +1,4 @@
-import subprocess
+import subprocess, sys
 
 class FastTree:
     def __init__(self, file, output_file="output.nw", output_image="newick.png"):
@@ -12,5 +12,5 @@ class FastTree:
 
     def render_tree_image(self):
         subprocess.run(
-            ["python", "render_tree.py", self.output_file, self.output_image],
+            [sys.executable, "newick_to_image.py", self.output_file, self.output_image],
             check=True)

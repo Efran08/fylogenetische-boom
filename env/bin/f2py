@@ -1,8 +1,23 @@
 #!/homes/hjwilts/fylogenetische-boom/env/bin/python3
 # -*- coding: utf-8 -*-
-import re
+
+"""
+This script is written to edit the document and to run the f2py tool. This script is used to compile the fortran code
+and rewrite it to python.
+
+Author: Herke Wilts
+Date 06-04-2025
+Version 1.0
+"""
+
+
+import re #importing the modules
 import sys
 from numpy.f2py.f2py2e import main
+
 if __name__ == '__main__':
-    sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0])
-    sys.exit(main())
+    """
+    This function runs the f2py tool and replaces the extension to nothing before the f2py runs.
+    """
+    sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0]) #replaces the extension to nothing
+    sys.exit(main()) #exits the script

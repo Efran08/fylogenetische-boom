@@ -1,8 +1,23 @@
 #!/homes/hjwilts/fylogenetische-boom/env/bin/python3
 # -*- coding: utf-8 -*-
-import re
+
+"""
+This script is written to edit the document and run the fontTools.ttx. FontTools is a tool that edits the fonttype and
+it contains a TTX tool that can convert TrueType and OpenType fonts to and from XML text format.
+
+Author: Herke Wilts
+Date 06-04-2025
+Version 1.0
+"""
+
+
+import re #import the used tools
 import sys
 from fontTools.ttx import main
+
 if __name__ == '__main__':
-    sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0])
-    sys.exit(main())
+    """
+    This function runs fontTools.ttx and edits the extension of the document to none.
+    """
+    sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0]) #changes the extension of the file
+    sys.exit(main()) #Runs the fontTools.TTX and exits the code

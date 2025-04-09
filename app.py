@@ -99,7 +99,7 @@ if __name__ == '_main_':
     app.run(debug=True)
 
     profiler.disable()
-    profiler.dump_stats('output_prof')
+    profiler.dump_stats('output.prof')
 
     stats = pstats.Stats('output.prof')
     stats.strip_dirs()

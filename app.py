@@ -6,11 +6,12 @@ Efran Huliseln, Herke Wilts, Alana Hummel, Gea Bakker en Wytze Meijer.
 versie 1.3
 21-03-25
 """
-
-import cProfile, pstats, os
+import os
+import pstats
+import cProfile
+from functools import wraps
 from flask import Flask, render_template, request, url_for
 from fasttree import FastTree
-from functools import wraps
 
 app = Flask(__name__)
 UPLOAD_FOLDER = os.path.join(app.root_path, 'uploads')
@@ -26,7 +27,7 @@ def profile_route(func):
         result = func(*args, **kwargs)
         profiler.disable()
 
-        profile_files = f'profile_output.prof'
+        profile_files = 'profile_output.prof'
         profiler.dump_stats('profile_output.prof')
 
         stats = pstats.Stats(profile_files)

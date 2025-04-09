@@ -59,6 +59,8 @@ def tool_gebruiken():
         file_path = os.path.join(UPLOAD_FOLDER, f.filename)
 
         f.save(file_path)
+        speed = request.form.get('speed', '')  # Default to an empty string if not set
+        model = request.form.get('model', '')
 
         fasttree = FastTree(
             file_path, 
@@ -70,6 +72,15 @@ def tool_gebruiken():
         fasttree.render_tree_image()
 
         tree_output = url_for('static', filename='tree.png')
+        kwargs = {
+            'speed': speed,
+            'model': model,
+        }
+
+        fasttree.run_fasttree(**kwargs)
+
+
+        return render_template('tool_output.html', tree=tree_output, **kwargs)
 
         return render_template('tool_output.html', tree=tree_output)
 
@@ -91,21 +102,21 @@ def contact_pagina():
       }
     return render_template('contact_us_output.html', **kwargs)
 
-if __name__ == '_main_':
-    # # Start de profiler
-    # profiler = cProfile.Profile()
-    # profiler.enable()  # Start het verzamelen van gegevens
+if __name__ == '__main__':
+    # Start de profiler
+    profiler = cProfile.Profile()
+    profiler.enable()  # Start het verzamelen van gegevens
 
     # Run de Flask-applicatie
     app.run(debug=True)
 
     # Stop de profiler na het uitvoeren van de app
-    # profiler.disable()
-    # profiler.dump_stats('output.prof')  # Sla de gegevens op in output.prof
+    profiler.disable()
+    profiler.dump_stats('output.prof')  # Sla de gegevens op in output.prof
 
-    # # Analyseer de verzamelde gegevens met pstats
-    # stats = pstats.Stats('output.prof')
-    # stats.strip_dirs()  # Verwijder de padinformatie om het overzichtelijker te maken
-    # stats.sort_stats('time')  # Sorteer op tijdsduur
-    # stats.print_stats(10)  # Toon de top 10 functies die het meeste tijd verbruiken
-    # stats.dump_stats('filtered_output.prof')  # Sla de gefilterde gegevens op
+    # Analyseer de verzamelde gegevens met pstats
+    stats = pstats.Stats('output.prof')
+    stats.strip_dirs()  # Verwijder de padinformatie om het overzichtelijker te maken
+    stats.sort_stats('time')  # Sorteer op tijdsduur
+    stats.print_stats(10)  # Toon de top 10 functies die het meeste tijd verbruiken
+    stats.dump_stats('filtered_output.prof')  # Sla de gefilterde gegevens op

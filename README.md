@@ -3,7 +3,7 @@
 Version 1.0 03/03/25
 
 ### Product description
-This readme belongs to a website called The Magic Tree. The Magic Tree is able to display a phylogenetic tree. This 
+This readme belongs to a website called Treevolution. Treevolution is able to display a phylogenetic tree. This 
 tree is customizable through files the user is able to upload and the user can choose different parameters from a given 
 selection. The changeable parameters are the speed, the model and how the first line will be read. The user can choose
 between a standard, faster or slower speed. The  slower the speed, the more accurate the tree will be. The model is 
@@ -24,7 +24,7 @@ Voor het installeren van het programma Biopython gebruiken we de commando:
 * source env/bin/activate
 * pip install biopython
 
-Dit zorgt ervoor dat we ETE toolkit kunnen installeren zonder admin privileges dmv een virtual environment.
+Dit zorgt ervoor dat we biopython kunnen installeren zonder admin privileges dmv een virtual environment.
 
 Voor het installeren van het programma Fasttree gebruiken we:
 * wget http://www.microbesonline.org/fasttree/FastTree -O ~/FastTree

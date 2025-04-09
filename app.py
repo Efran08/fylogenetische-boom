@@ -63,7 +63,7 @@ def tool_gebruiken():
 
         fasttree = FastTree(file_path)
         fasttree.run_fasttree()
-        fasttree.run_ete_toolkit()
+        fasttree.render_tree_image()
 
         tree_output = "hier komt later een fylogenetische boom"
 

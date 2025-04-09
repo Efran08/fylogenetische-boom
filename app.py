@@ -7,17 +7,41 @@ versie 1.3
 21-03-25
 """
 
-import os
-from flask import Flask, render_template, request
+import cProfile, pstats, os
+from flask import Flask, render_template, request, url_for
 from fasttree import FastTree
-
+from functools import wraps
 
 app = Flask(__name__)
 UPLOAD_FOLDER = os.path.join(app.root_path, 'uploads')
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 ALLOWED_EXTENSIONS = {'fasta', 'phylip', 'fa', 'phy'}
 
+
+def profile_route(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        profiler = cProfile.Profile()
+        profiler.enable()
+        result = func(*args, **kwargs)
+        profiler.disable()
+
+        profile_files = f'profile_output.prof'
+        profiler.dump_stats('profile_output.prof')
+
+        stats = pstats.Stats(profile_files)
+        stats.sort_stats('cumtime')
+        stats.print_stats
+
+        print(f'{profile_files}')
+
+        return result
+
+    return wrapper
+
+
 @app.route('/')
+@profile_route
 def home_pagina():
     """
     Als we dit script runnen komt deze pagina te voor schijn
@@ -26,6 +50,7 @@ def home_pagina():
     return render_template('home_page.html')
 
 @app.route('/about')
+@profile_route
 def dynamische_about_pagina():
     """
     achtergrond informatie staat er over de tools in de About_pagina.html
@@ -34,6 +59,7 @@ def dynamische_about_pagina():
     return render_template('About_page.html')
 
 @app.route('/tutorial')
+@profile_route
 def tutorial_pagina():
     """
     achtergrond informatie staat er over het installeren van de tools in de tutorial_page.html
@@ -42,6 +68,7 @@ def tutorial_pagina():
     return render_template('tutorial_page.html')
 
 @app.route('/tool', methods=['GET', 'POST'])
+@profile_route
 def tool_gebruiken():
     """
     Hier vul je een Fasta of PHILYP bestand in.
@@ -60,16 +87,32 @@ def tool_gebruiken():
         file_path = os.path.join(UPLOAD_FOLDER, f.filename)
 
         f.save(file_path)
+        speed = request.form.get('speed', '')  # Default to an empty string if not set
+        model = request.form.get('model', '') 
 
-        fasttree = FastTree(file_path)
+        fasttree = FastTree(
+            file_path, 
+            output_file="output.nw", 
+            output_image=os.path.join("static", "tree.png")
+        )
+
         fasttree.run_fasttree()
-        fasttree.run_ete_toolkit()
+        fasttree.render_tree_image()
 
-        tree_output = "hier komt later een fylogenetische boom"
+        tree_output = url_for('static', filename='tree.png')
+        kwargs = {
+            'speed': speed,
+            'model': model,
+        }
 
-        return render_template('tool_output.html', tree=tree_output)
+        fasttree.run_fasttree(**kwargs)
+
+
+        return render_template('tool_output.html', tree=tree_output, **kwargs)
+
 
 @app.route('/contact', methods=['GET', 'POST'])
+@profile_route
 def contact_pagina():
     """
     Hierin wordt er een get en post functie gemaakt, waarin er vanuit de website een connectie
@@ -88,4 +131,4 @@ def contact_pagina():
     return render_template('contact_us_output.html', **kwargs)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()

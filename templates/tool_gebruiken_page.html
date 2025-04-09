@@ -14,9 +14,10 @@
         Blok 3: Type of Fasttree model,<br> Blok 4: Extended species names,<br> Blok 5: Uploading.
     </p>
     <form class="file_upload" method="post" enctype="multipart/form-data">
+        <!-- Blok 1: File upload -->
         <input type="file" name="file" required>
-    </form>
-    <div class="container">
+    
+        <!-- Blok 2: Speed options -->
         <div class="dropdown">
             <input type="radio" id="opt-speed-default" name="dropdown" checked>
             <input type="radio" id="opt-speed-faster" name="dropdown">
@@ -28,6 +29,8 @@
                 <label for="opt-speed-slower">Slower<br>(more accurate)</label>
             </div>
         </div>
+    
+        <!-- Blok 3: Model options -->
         <div class="dropdown">
             <input type="radio" id="opt-model-jc" name="dropdown-model" checked>
             <input type="radio" id="opt-model-gtr" name="dropdown-model">
@@ -44,6 +47,8 @@
                 <label for="opt-model-lg">Le and Gascuel 2008<br>(proteins)</label>
             </div>
         </div>
+    
+        <!-- Blok 4: Species names -->
         <div class="dropdown">
             <input type="radio" id="opt-names-yes" name="dropdown-names" checked>
             <input type="radio" id="opt-names-no" name="dropdown-names">
@@ -53,9 +58,9 @@
                 <label for="opt-names-yes">Yes</label>
             </div>
         </div>
-    </div>
-    <form class="file_upload" method="post" enctype="multipart/form-data">
-    <button type="submit">Upload file</button>
+    
+        <!-- Blok 5: Submit -->
+        <button type="submit">Upload file</button>
     </form>
 {% endblock %}
 

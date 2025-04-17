@@ -6,7 +6,8 @@ Date: 09/04/2025
 Version: 1.0
 """
 
-import subprocess, sys #import the tools
+import subprocess
+import sys
 
 class FastTree:
     """
@@ -17,6 +18,12 @@ class FastTree:
     """
 
     def __init__(self, file, output_file="output.nw", output_image="newick.png"):
+        """
+        This class runs FastTree and creates a phylogenetic tree. To display the image, 
+        the script newick_to_image.py is called.
+
+        Return: image
+        """
         self.file = file
         self.output_file = output_file
         self.output_image = output_image
@@ -25,7 +32,7 @@ class FastTree:
         """
         This function runs FastTree and the user can specify the options. It returns a newick file.
 
-        Paramerter: kwargs
+        Param: kwargs
         Return: Newick file
         """
         # Extract options from kwargs (with default values if not provided)
@@ -51,7 +58,8 @@ class FastTree:
 
     def render_tree_image(self):
         """
-        This function calls the script newick_to_image.py to create an image from the newick file and returns an image.
+        This function calls the script newick_to_image.py to create an image from the newick file
+        and returns an image.
 
         Return: Image
         """

@@ -1,14 +1,3 @@
-"""
-This script turns a newick file into an image. This script gets the information from fasttree.py and plots it.
-
-Author: Herke Wilts, Alana Hummel
-Date: 09/04/2025
-Version: 1.0
-"""
-
-
-import matplotlib #import the tools
-matplotlib.use('Agg')  # Headless backend, no GUI pop-up
 import matplotlib.pyplot as plt
 from Bio import Phylo
 import argparse
@@ -30,7 +19,7 @@ def newick_to_image(newick_file, output_image="newick.png"):
 
 if __name__ == "__main__":
     """
-    This function addresses the information given in the command line given by the user. 
+    Turns the script CLI-callable via named arguments.
     """
     parser = argparse.ArgumentParser(description="Render Newick tree to image")
     parser.add_argument("newick_file", help="Input .nw file")

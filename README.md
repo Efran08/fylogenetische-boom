@@ -15,17 +15,16 @@ sequence and it starts with ">". The default here is to quit reading the line th
 If the upload does not have a ">", the default setting is to read the whole line. 
 
 First, the uploaded file will be formatted to a Newick file. This file will be formatted with the tool Fasttree and
-when the Newick file is made, it will be visualised by Biopython. Biopython will return a SVG that will be 
-displayed on the website.
+when the Newick file is made, it will be visualised by Treevolution. Treevolution will return a SVG that will be displayed on the website.
 
 ### Install instructions
 Voor het installeren van het programma Biopython gebruiken we de commando:
+
+* python3 -m venv env
+* source env/bin/activate
 * pip install biopython
 
-Dit zorgt ervoor dat we Biopython kunnen installeren zonder admin privileges
-
-Voor het updaten van biopython:
-* pip install biopython --upgrade
+Dit zorgt ervoor dat we biopython kunnen installeren zonder admin privileges dmv een virtual environment.
 
 Voor het installeren van het programma Fasttree gebruiken we:
 * wget http://www.microbesonline.org/fasttree/FastTree -O ~/FastTree
@@ -36,6 +35,7 @@ Voor het installeren van het programma Fasttree gebruiken we:
 ### System requirements
 * Debian-gebaseerde versie van Linux
 * Python 3
+* Virtual environment met daarin biopython
 
 ### Commandline arguments
 Step 1: Generating a Phylogenetic Tree with FastTree
@@ -52,18 +52,13 @@ FastTree -wag -faster input.fasta > output.tree
 Sometimes, FASTA headers contain spaces, and by default, FastTree only reads the first word. To ensure the full header is used, include the -quote option:
 FastTree -nt -quote input.fasta > output.tree
 
-Step 2: Visualizing the Tree with Biopython
-Now that we have a tree in Newick format, we need a way to visualize it. This is where Biopython comes into play.
+Step 2: Visualizing the Tree with biopython
+Now that we have a tree in Newick format, we need a way to visualize it. This is where bipython comes into play.
+It simply works like
+python newick_to_image.py input.fasta > output.tree
 
-To generate a PNG image of the tree, run:
-Biopython view -t output.tree -o tree.png --format png
+It'll be a png.
 
-If you prefer an SVG file and want to adjust the image size (e.g., 800x600 pixels), use:
-Biopython view -t output.tree -o tree.svg --format svg --width 800 --height 600
-
-For a PDF version, simply use:
-
-Biopython view -t output.tree -o tree.pdf --format pdf
 
 ### Authors
 Herke Wilts: hj.wilts@st.hanze.nl
@@ -76,4 +71,4 @@ Wytze Meijer: wh.meijer@st.hanze.nl
 To build the phylogenetic trees we use fasttree. Fasttree is a program that builds phylogenetic trees to compare species or determine what species organism belong to.
 Fasttree is an CLI tool and uses FASTA- or phylipfiles to build Newick phylogenetic tree formats.
 
-We also use visualization tool Biopython. This tool can read a Newick file and save or change it as an SVG, PNG, or PDF.
+We also use visualization tool biopython.

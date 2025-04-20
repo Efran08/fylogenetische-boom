@@ -309,3 +309,15 @@ footer {
 .dropdown:hover .dropbtn {
     background-color: #3e8e41;
 }
+
+.error-message{
+    text-align: center;
+    color: #cc0000;
+    background-color: #ffe5e5;
+    border: 1px solid #cc0000;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    font-weight: bold;
+
+}

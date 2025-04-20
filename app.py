@@ -53,6 +53,10 @@ def profile_route(func):
     return wrapper
 
 
+def toegestaande_bestanden(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+
 @app.route('/')
 @profile_route
 def home_pagina():
@@ -96,6 +100,10 @@ def tool_gebruiken():
         # get file from request object
         
         f = request.files['file']
+
+        if not toegestaande_bestanden(f.filename):
+            foutmelding = "Niet geldig bestandtype, het moet een Fasta of Philyp bestand zijn"
+            return render_template('tool_gebruiken_page.html', error=foutmelding)
 
         file_path = os.path.join(UPLOAD_FOLDER, f.filename)
 

@@ -13,6 +13,11 @@
     Block 1: Choose your file,<br>  Block 2: Change the speed of creating a phylogenetic tree,<br>
         Block 3: Type of Fasttree model,<br> Block 4: Extended species names,<br> Block 5: Uploading.
     </p>
+    {% if error %}
+        <div class="error-message">
+             {{ error }}
+        </div>
+    {% endif %}
     <form method="post" enctype="multipart/form-data">
         <!-- Blok 1: File upload -->
         <label for="file">Choose your file:</label>

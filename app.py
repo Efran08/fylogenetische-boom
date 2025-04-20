@@ -20,21 +20,33 @@ ALLOWED_EXTENSIONS = {'fasta', 'phylip', 'fa', 'phy'}
 
 
 def profile_route(func):
+    """
+    Decorator die de uitvoering van een routefunctie profileert met cProfile.
+    Het resultaat wordt opgeslagen in een .prof-bestand en weergegeven in de console.
+    """
     @wraps(func)
     def wrapper(*args, **kwargs):
+        # Start profiling
         profiler = cProfile.Profile()
         profiler.enable()
+
+        # Voer de originele functie uit en bewaar het resultaat
         result = func(*args, **kwargs)
+
+        # Stop profiling
         profiler.disable()
 
+        # Bestand waarin profilingdata wordt opgeslagen
         profile_files = 'profile_output.prof'
-        profiler.dump_stats('profile_output.prof')
+        profiler.dump_stats(profile_files)
 
+        # Laad en sorteer de statistieken op cumulatieve tijd
         stats = pstats.Stats(profile_files)
         stats.sort_stats('cumtime')
-        stats.print_stats
+        stats.print_stats()  # Zorg dat de stats ook daadwerkelijk worden getoond
 
-        print(f'{profile_files}')
+        # Print ter bevestiging dat profilingdata is weggeschreven
+        print(f'Profiling opgeslagen in: {profile_files}')
 
         return result
 

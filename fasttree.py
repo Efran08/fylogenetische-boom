@@ -9,11 +9,12 @@ Version: 1.0
 import subprocess
 import sys
 
+
 class FastTree:
     def __init__(self, file, output_file="output.nw", output_image="newick.png"):
         """
-        This class runs FastTree and creates a phylogenetic tree. To display the image, 
-        the script newick_to_image.py is called.
+        This class runs FastTree and creates a phylogenetic tree.
+        To display the image, the script newick_to_image.py is called.
 
         Return: image
         """
@@ -23,7 +24,8 @@ class FastTree:
 
     def run_fasttree(self, **kwargs):
         """
-        This function runs FastTree and the user can specify the options. It returns a newick file.
+        This function runs FastTree and the user can specify the options.
+        It returns a newick file.
 
         Param: kwargs
         Return: Newick file
@@ -48,13 +50,15 @@ class FastTree:
         # Run the FastTree command and write output to the output file
         with open(self.output_file, "w") as nw_out:
             subprocess.run(cmd, stdout=nw_out, check=True)
+
     def render_tree_image(self):
         """
-        This function calls the script newick_to_image.py to create an image from the newick file
-        and returns an image.
+        This function calls the script newick_to_image.py to create an image
+        from the newick file and returns an image.
 
         Return: Image
         """
         subprocess.run(
             [sys.executable, "newick_to_image.py", self.output_file, self.output_image],
-            check=True)
+            check=True
+        )
